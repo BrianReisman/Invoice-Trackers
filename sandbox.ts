@@ -9,12 +9,67 @@
 
 const log = console.log;
 
-const character = "Bri";
-log(character);
+let character = "Brian";
+let age = 30;
+let isBlackBelt = false;
 
-const inputs = document.querySelectorAll('input');
-log(inputs)
+// character = 20;
+character = "Ron";
 
-inputs.forEach(input => {
-  log(input)
-})
+// age = 'thirty'
+age = 40;
+
+// isBlackBelt = 'yes';
+isBlackBelt = true;
+
+const circ = (diameter: number) => {
+  // const circ = (diameter: string) => {
+  // const circ = (diameter: boolean) => {
+  return diameter * Math.PI;
+};
+console.log(circ(7.5));
+
+//*arrays
+let names = ["Brian", "Ron", "Robin", "Steven"];
+
+names.push("Bubby");
+// names.push(4);
+// names.push(true);
+// names[0] = false;
+
+let numbers = [10, 20, 30, 40];
+numbers.push(25);
+// numbers.push('Hello');
+// let me = 'Brian';
+// numbers.push(me)
+
+let mixed = ["Ken", 4, "string", 8, 9];
+mixed.push(44);
+mixed.push("Text");
+// mixed.push(false)
+// mixed.push(true)
+mixed[0] = 0;
+mixed[1] = "string";
+
+//* objects. Property types become fixed
+let ninja = {
+  name: "Brian",
+  belt: "black",
+  age: 30,
+};
+ninja.age = 40;
+ninja.name = "Test";
+// ninja.age = "30";
+// ninja.skills = ['fight', 'rest', 'sneaking']; //*new property cannot be added to existing object
+
+ninja = {
+  ...ninja,
+  // skills: "test"
+};
+
+ninja = { //must match exact same shape
+  name: "Patrick",
+  belt: "blue",
+  age: 32,
+  // skills: []
+};
