@@ -128,5 +128,33 @@
 // }; //*more or less properties than defined originally doesn't pass.
 
 //!#6
-//!#6 - Dynamic (any) types
-//!#6
+//!#6 - Dynamic (any) types. primatives + objects
+//!#6 - No errors. essentially undoes what TypeScript offers. Worsens intelicense
+
+let age: any = 25; //"let age be any type, but for now lets start it initialized with a value of 25"
+
+//The above is a one line version of the two following lines
+let age2: any;
+age2 = 4;
+
+let mixedAnyArr: any[] = [];
+mixedAnyArr.push("test");
+mixedAnyArr.push(123);
+mixedAnyArr.push(false);
+
+let anyObj: {
+  name: string;
+  age: any; //*<<<
+};
+anyObj = {
+  name: "brian", //fixed string
+  age: 23, //any
+};
+anyObj = {
+  name: "brian", //fixed string
+  age: false, //any
+};
+anyObj = {
+  name: "brian", //fixed string
+  age: "23", //any
+};

@@ -106,5 +106,26 @@
 //   isAboveGreenBelt: false,
 // }; //*more or less properties than defined originally doesn't pass.
 //!#6
-//!#6 - Dynamic (any) types
-//!#6
+//!#6 - Dynamic (any) types. primatives + objects
+//!#6 - No errors. essentially undoes what TypeScript offers. Worsens intelicense
+var age = 25; //"let age be any type, but for now lets start it initialized with a value of 25"
+//The above is a one line version of the two following lines
+var age2;
+age2 = 4;
+var mixedAnyArr = [];
+mixedAnyArr.push("test");
+mixedAnyArr.push(123);
+mixedAnyArr.push(false);
+var anyObj;
+anyObj = {
+    name: "brian",
+    age: 23
+};
+anyObj = {
+    name: "brian",
+    age: false
+};
+anyObj = {
+    name: "brian",
+    age: "23"
+};
