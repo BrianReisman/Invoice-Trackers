@@ -163,4 +163,65 @@
 // !
 // ! - 7 Workflow & tsconfig
 
-console.log('Brian')
+// !
+// !
+// ! - 8 Functions
+
+// let greet = () => {
+//   console.log("hello, World!");
+// };
+// let greet: Function; //*Function must have a capital 'F'
+// // greet = 'hello' //!error. already a function
+
+// greet = () => {
+//   console.log("asdf");
+// };
+// greet = function () {
+//   console.log("non arrow");
+// };
+
+// // const add = (a: number, b: number, c: number | string = 10) => {
+// const add = (a: number, b: number, c: number | string = 10): void => { //*void is the return (in TypeScript) of a function that does not return anything. In JavaSCript this will be converted into undefined. Will throw an error if you do eventually return something from this function after explicitly flagging it as : void
+//   console.log(a + b);
+//   console.log(c);
+// };
+// add(20, 4);
+// add(20, 4, "true");
+// // add(true, 4); //*error. type of argument doesn't match parameter's expections/type
+// //? c: number | string. makes this parameter required. following the parameter name (c) and preceeding the : add a ? to make it optional
+// //? it is not common, or nesecary, to use the ? (optional) and the = (default value) since default will always supply a value.
+// // ? NOTE: if you use an option or default parameter, it is best practice to put them at the end of your parameter list.
+
+//    const minus = (a: number, b: number) => {
+// // const minus = (a: number, b: number): number => { //*optional: you can explicitly define the return type of a function. Protects you from a function return a type other than specified at the outset.
+//   return a + b;
+// };
+// let result = minus(10,7) //*The returned value will be infered by TypeScript and assigned to the varaible that stores the result of a function. Now, this var 'result' is typed as a number.
+// // result = 'st' //!error, this is a number now 
+
+
+// !
+// !
+// ! - #9 Type Aliases
+
+
+const greet = (user: {name: string, uid: string | number}) => {
+  console.log(`${user.name} says hello`)
+}
+greet({name: "Brian", uid: 1})
+
+// <<<<< SAME AS ABOVE WITH TYPE ALIASES >>>>>
+type StringOrNum = string | number; //*Store this type in a variable with the 'type' keyword
+
+const greet2 = (user: {name: string, uid: StringOrNum}) => {
+  console.log(`${user.name} says hello`)
+}
+greet({name: "Brian", uid: 2})
+
+// <<<<< SAME AS ABOVE WITH TYPE ALIASE FOR COMPOUND TYPE >>>>>
+type objWithName = {name: string, uid: StringOrNum}
+
+const greet3 = (user: objWithName) => {
+  console.log(`${user.name} says hello`)
+}
+greet({name: "Brian", uid: 3})
